@@ -20,9 +20,9 @@ FROM nginx:alpine
 # Copy built application from previous stage
 COPY . /var/www/html/rank_api/
 
-
+RUN pwd
 # Copy Nginx configuration
-COPY /docker/nginx/rank.conf /etc/nginx/conf.d/rank.conf
+COPY ./docker/nginx/rank.conf /etc/nginx/conf.d/rank.conf
 
 # Expose port
 EXPOSE 80
