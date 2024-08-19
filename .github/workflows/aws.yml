@@ -31,7 +31,7 @@ on:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: us-east-1e                  # set this to your preferred AWS region, e.g. us-west-1
+  AWS_REGION: us-east-1                  # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: ranking-deploy           # set this to your Amazon ECR repository name
   ECS_SERVICE: test-ranking                 # set this to your Amazon ECS service name
   ECS_CLUSTER: test-ranking                  # set this to your Amazon ECS cluster name
@@ -59,7 +59,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1e
+        aws-region: us-east-1
 
     - name: Login to Amazon ECR
       id: login-ecr
