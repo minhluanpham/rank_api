@@ -28,7 +28,7 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - ./mysql:/var/lib/mysql
+      /docker/mysql:/var/lib/mysql
     networks:
       - rank-network
 
@@ -46,7 +46,7 @@ services:
     container_name: phpfpm
     build:
       context: .
-      dockerfile: docker/php/dockerFile
+      dockerfile: docker/php/Dockerfile
     working_dir: /var/www/html/rank_api
     volumes:
       - ./rank_api/:/var/www/html/rank_api/
