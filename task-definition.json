@@ -1,5 +1,97 @@
 {
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:051826726727:task-definition/ranking-deploy:1",
+    "containerDefinitions": [
+        {
+            "name": "ranking-deploy",
+            "image": "ranking-deploy:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "ranking-deploy-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/ranking-deploy",
+                    "mode": "non-blocking",
+                    "awslogs-create-group": "true",
+                    "max-buffer-size": "25m",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "healthCheck": {
+                "command": [
+                    "/check"
+                ],
+                "interval": 5,
+                "timeout": 2,
+                "retries": 3
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "ranking-deploy",
+    "executionRoleArn": "arn:aws:iam::051826726727:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.24"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
+        },
+        {
+            "name": "ecs.capability.container-health-check"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2"
+    ],
     "requiresCompatibilities": [
-      "EC2"
-    ]
-  }
+        "EC2"
+    ],
+    "cpu": "1024",
+    "memory": "256",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2024-08-19T04:21:00.288Z",
+    "registeredBy": "arn:aws:iam::051826726727:root",
+    "tags": []
+}
